@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101c2a" />
+  <title>Himalayan Highway — Nepal Bus Drive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell" aria-label="Himalayan Highway bus driving game">
+    <canvas id="game" aria-label="Nepal mountain road driving game"></canvas>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Himalayan Highway home"><span class="brand-mark">H</span><span>HIMALAYAN<span class="brand-light"> HIGHWAY</span><small>NEPAL BUS SERVICE</small></span></a>
+      <div class="top-center"><span class="live-dot"></span><span id="route-label">ROUTE 01&nbsp; · &nbsp;PRITHVI HIGHWAY</span></div>
+      <button class="icon-button" id="sound-button" aria-label="Toggle sound" title="Toggle sound"><span id="sound-icon">♪</span></button>
+    </header>
+
+    <section class="hud" id="hud" aria-live="polite">
+      <div class="hud-card route-card"><div class="eyebrow">TODAY'S RUN <span class="status-pill" id="status-pill">READY</span></div><div class="destination"><span class="pin">⌖</span><span id="destination">Kathmandu <i>→</i> Pokhara</span></div><div class="progress-track"><div class="progress-fill" id="progress-fill"></div><span class="progress-stop stop-one"></span><span class="progress-stop stop-two"></span></div><div class="route-foot"><span id="distance-label">0.0 km</span><span>·</span><span>142 km</span></div></div>
+      <div class="hud-card speed-card"><div class="speed-top"><span class="eyebrow">SPEED</span><span class="gear" id="gear">N</span></div><div class="speed-reading"><span id="speed">00</span><small>km/h</small></div><div class="speed-meter"><span id="speed-meter"></span></div><div class="speed-note" id="speed-note">Drive carefully</div></div>
+      <div class="hud-card score-card"><div class="eyebrow">YOUR CONDUCT</div><div class="score-reading" id="score">0000</div><div class="score-bottom"><span class="star">★</span><span id="passengers">0 / 3 passengers</span></div><div class="mini-divider"></div><div class="score-bottom time-row"><span>TIME ON ROAD</span><span class="mono" id="clock">00:00</span></div></div>
+    </section>
+
+    <div class="notice" id="notice" aria-live="assertive"><span class="notice-icon">✦</span><span id="notice-text">Slow down for the hairpin!</span></div>
+
+    <div class="center-overlay" id="start-overlay">
+      <div class="overlay-content intro-card">
+        <div class="location-tag"><span class="tag-dot"></span> BAGMATI PROVINCE · NEPAL</div>
+        <h1>THE ROAD<br>IS <span>YOURS.</span></h1>
+        <p class="intro-copy">Take the wheel on Nepal's legendary mountain highway. Keep your passengers safe, watch the bends, and bring the bus home to Pokhara.</p>
+        <div class="route-preview"><div class="preview-icon">🏔</div><div><strong>Kathmandu <span>→</span> Pokhara</strong><small>PRITHVI HIGHWAY · 142 KM</small></div><div class="route-difficulty"><span>●●●○</span><small>MODERATE</small></div></div>
+        <button class="primary-button" id="start-button"><span>Start your journey</span><span class="button-arrow">↗</span></button>
+        <div class="control-hint"><span>⌨</span> WASD / ARROWS <b>·</b> <span>⏎</span> SPACE TO BRAKE</div>
+      </div>
+    </div>
+
+    <div class="center-overlay hidden" id="pause-overlay">
+      <div class="overlay-content small-card"><div class="location-tag">JOURNEY PAUSED</div><h2>Take a breather.</h2><p>Your passengers are waiting.</p><button class="primary-button" id="resume-button"><span>Back to the road</span><span class="button-arrow">↗</span></button></div>
+    </div>
+
+    <div class="center-overlay hidden" id="finish-overlay">
+      <div class="overlay-content small-card result-card"><div class="location-tag"><span class="tag-dot"></span> JOURNEY COMPLETE</div><h2 id="finish-title">Namaste, driver.</h2><p id="finish-copy">You made it to Pokhara. The mountains thank you.</p><div class="result-stats"><div><strong id="final-score">0000</strong><small>ROAD POINTS</small></div><div><strong id="final-passengers">0/3</strong><small>HAPPY PASSENGERS</small></div><div><strong id="final-time">00:00</strong><small>TIME TAKEN</small></div></div><button class="primary-button" id="restart-button"><span>Drive again</span><span class="button-arrow">↗</span></button></div>
+    </div>
+
+    <div class="pause-chip" id="pause-chip"><span class="keyboard-key">P</span><span>PAUSE</span></div>
+    <div class="mobile-controls" id="mobile-controls"><button class="touch-control steering" data-control="left" aria-label="Steer left">‹</button><div class="touch-pedals"><button class="touch-control brake" data-control="brake"><span>−</span><small>BRAKE</small></button><button class="touch-control accelerate" data-control="accelerate"><span>+</span><small>THROTTLE</small></button></div><button class="touch-control steering" data-control="right" aria-label="Steer right">›</button></div>
+    <footer class="bottom-bar"><span class="road-tip"><span class="tip-spark">✦</span><span id="tip">Take it easy on the bends. The valley isn't going anywhere.</span></span><span class="footer-location">27° 42′ N&nbsp; · &nbsp;85° 19′ E <i>◈</i> NEPAL</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
